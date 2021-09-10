@@ -25,9 +25,9 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default" id="minus-button-phone"><i class="fas fa-minus"></i></button>
+                           <input type="text" id="product-piece-phone" class="form-control text-center" value="1">
+                           <button class="btn btn-default" id="plus-button-phone"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -77,6 +77,19 @@
          </div>
       </div>
    </section>
+
+   <script>
+      //phone minus button event handler
+      const phoneMinusBtn = document.getElementById('minus-button-phone');
+      phoneMinusBtn.addEventListener('click', function() {
+         var productPiece = document.getElementById('product-piece-phone').value;
+         var productPieceNumber = parseInt(productPiece);
+         productPiece = --productPiece;
+         // productPiece.innerText = productPiece;
+         document.getElementById('product-piece-phone').value = productPiece;
+      })
+   </script>
+
 </body>
 
 </html>
