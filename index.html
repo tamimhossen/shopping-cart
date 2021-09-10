@@ -29,7 +29,7 @@
                            <input type="text" id="product-piece-phone" class="form-control text-center" value="1">
                            <button class="btn btn-default" id="plus-button-phone"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="total-of-phone">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -84,9 +84,31 @@
       phoneMinusBtn.addEventListener('click', function() {
          var productPiece = document.getElementById('product-piece-phone').value;
          var productPieceNumber = parseInt(productPiece);
-         productPiece = --productPiece;
-         // productPiece.innerText = productPiece;
-         document.getElementById('product-piece-phone').value = productPiece;
+         productPieceNumber = --productPieceNumber;
+         document.getElementById('product-piece-phone').value = productPieceNumber;
+
+         var totalOfPhone = document.getElementById('total-of-phone').innerText;
+         var totalOfPhoneNumber = parseInt(totalOfPhone);
+         console.log(totalOfPhoneNumber);
+         totalOfPhoneNumber = productPieceNumber * 1219;
+         console.log(totalOfPhoneNumber); 
+         document.getElementById('total-of-phone').innerText = totalOfPhoneNumber;         
+
+
+      })
+
+      //phone plus button event handler
+      const phonePlusBtn = document.getElementById('plus-button-phone');
+      phonePlusBtn.addEventListener('click', function() {
+         var productPiece = document.getElementById('product-piece-phone').value;
+
+         var productPieceNumber = parseInt(productPiece);
+         productPieceNumber = ++productPieceNumber;
+         document.getElementById('product-piece-phone').value = productPieceNumber;
+         console.log(productPieceNumber);
+
+         
+
       })
    </script>
 
