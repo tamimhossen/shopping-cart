@@ -81,42 +81,49 @@
    <script>
       
 
-      
+      function minusButtonFunctionality(productPieceId, totalId, price) {
+         var productPiece = document.getElementById(productPieceId).value;
+         var productPieceNumber = parseInt(productPiece);
+         productPieceNumber = --productPieceNumber;
+         document.getElementById(productPieceId).value = productPieceNumber;
 
+         var totalOfPhone = document.getElementById(totalId).innerText;
+         var totalOfPhoneNumber = parseInt(totalOfPhone);
+         totalOfPhoneNumber = productPieceNumber * price;
+         document.getElementById(totalId).innerText = totalOfPhoneNumber;
+         return totalOfPhoneNumber;
+      }
+
+      function plusButtonFunctionality(productPieceId, totalId, price) {
+         var productPiece = document.getElementById(productPieceId).value;
+
+         var productPieceNumber = parseInt(productPiece);
+         productPieceNumber = ++productPieceNumber;
+         document.getElementById(productPieceId).value = productPieceNumber;
+
+         var totalOfPhone = document.getElementById(totalId).innerText;
+         var totalOfPhoneNumber = parseInt(totalOfPhone);
+         totalOfPhoneNumber = productPieceNumber * price; 
+         document.getElementById(totalId).innerText = totalOfPhoneNumber;
+         return totalOfPhoneNumber;
+      }
+
+      
 
       //Phone ********
       //phone minus button event handler
       const phoneMinusBtn = document.getElementById('minus-button-phone');
       phoneMinusBtn.addEventListener('click', function() {
-         var productPiece = document.getElementById('product-piece-phone').value;
-         var productPieceNumber = parseInt(productPiece);
-         productPieceNumber = --productPieceNumber;
-         document.getElementById('product-piece-phone').value = productPieceNumber;
+        var minusButtonValue = minusButtonFunctionality('product-piece-phone', 'total-of-phone', 1219);
+        console.log(minusButtonValue);
 
-         var totalOfPhone = document.getElementById('total-of-phone').innerText;
-         var totalOfPhoneNumber = parseInt(totalOfPhone);
-         console.log(totalOfPhoneNumber);
-         totalOfPhoneNumber = productPieceNumber * 1219;
-         console.log(totalOfPhoneNumber); 
-         document.getElementById('total-of-phone').innerText = totalOfPhoneNumber;
       })
 
       //phone plus button event handler
       const phonePlusBtn = document.getElementById('plus-button-phone');
       phonePlusBtn.addEventListener('click', function() {
-         var productPiece = document.getElementById('product-piece-phone').value;
-
-         var productPieceNumber = parseInt(productPiece);
-         productPieceNumber = ++productPieceNumber;
-         document.getElementById('product-piece-phone').value = productPieceNumber;
-         console.log(productPieceNumber);
-
-         var totalOfPhone = document.getElementById('total-of-phone').innerText;
-         var totalOfPhoneNumber = parseInt(totalOfPhone);
-         console.log(totalOfPhoneNumber);
-         totalOfPhoneNumber = productPieceNumber * 1219;
-         console.log(totalOfPhoneNumber); 
-         document.getElementById('total-of-phone').innerText = totalOfPhoneNumber;
+         var plusButtonValue = plusButtonFunctionality('product-piece-phone', 'total-of-phone', 1219);
+         console.log(plusButtonValue);
 
       })
 
@@ -127,43 +134,15 @@
       //case minus button handler
       const caseMinusBtn = document.getElementById('minus-button-case');
       caseMinusBtn.addEventListener('click', function() {
-         var productPiece = document.getElementById('product-piece-case').value;
-         var productPieceNumber = parseInt(productPiece);
-         productPieceNumber = --productPieceNumber;
-         document.getElementById('product-piece-case').value = productPieceNumber;
-
-         var totalOfCase = document.getElementById('total-of-case').innerText;
-         var totalOfCaseNumber = parseInt(totalOfCase);
-         console.log(totalOfCaseNumber);
-         totalOfCaseNumber = productPieceNumber * 59;
-         console.log(totalOfCaseNumber); 
-         document.getElementById('total-of-case').innerText = totalOfCaseNumber;         
+          minusButtonFunctionality('product-piece-case', 'total-of-case', 59);
       })
 
       //case plus button handler
       const casePlusBtn = document.getElementById('plus-button-case');
-      casePlusBtn.addEventListener('click', function() {
-         var productPiece = document.getElementById('product-piece-case').value;
-         var productPieceNumber = parseInt(productPiece);
-         productPieceNumber = ++productPieceNumber;
-         document.getElementById('product-piece-case').value = productPieceNumber;
-
-         var totalOfCase = document.getElementById('total-of-case').innerText;
-         var totalOfCaseNumber = parseInt(totalOfCase);
-         console.log(totalOfCaseNumber);
-         totalOfCaseNumber = productPieceNumber * 59;
-         console.log(totalOfCaseNumber); 
-         document.getElementById('total-of-case').innerText = totalOfCaseNumber;         
+      casePlusBtn.addEventListener('click', function() {  
+         plusButtonFunctionality('product-piece-case', 'total-of-case', 59)    
       })
       //Case ********
-
-      //function about total and subtotal
-      // function getTotalAndSubtotal(totalOfPhoneNumber, totalOfCaseNumber) {
-      //    var subTotal = totalOfPhoneNumber + totalOfCaseNumber;
-      //    document.getElementById('sub-total-balance').innerText = subTotal;
-      // }
-
-      // getTotalAndSubtotal();
    </script>
 
 </body>
