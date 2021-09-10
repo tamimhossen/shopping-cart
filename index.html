@@ -90,6 +90,22 @@
          var totalOfPhoneNumber = parseInt(totalOfPhone);
          totalOfPhoneNumber = productPieceNumber * price;
          document.getElementById(totalId).innerText = totalOfPhoneNumber;
+         if (productPieceId == 'product-piece-phone') {
+            var totalOfCase = document.getElementById('total-of-case').innerText;
+            var totalOfCaseNumber = parseInt(totalOfCase);
+            console.log(totalOfCaseNumber + totalOfPhoneNumber);
+            var subTotalBalanceBeforeEntry = totalOfCaseNumber + totalOfPhoneNumber;
+            document.getElementById('sub-total-balance').innerText = subTotalBalanceBeforeEntry;
+            document.getElementById('total-balance').innerText = subTotalBalanceBeforeEntry;
+         } else if (productPieceId == 'product-piece-case') {
+            var totalOfPhoneForSubTotal = document.getElementById('total-of-phone').innerText;
+            var totalOfPhoneForSubTotalNumber = parseInt(totalOfPhoneForSubTotal);
+            // console.log(totalOfPhoneForSubTotalNumber + totalOfPhoneNumber);
+            var subTotalBalanceBeforeEntry = totalOfPhoneForSubTotalNumber + totalOfPhoneNumber;
+            document.getElementById('sub-total-balance').innerText = subTotalBalanceBeforeEntry;
+            document.getElementById('total-balance').innerText = subTotalBalanceBeforeEntry;
+
+         }
          return totalOfPhoneNumber;
       }
  
@@ -117,13 +133,15 @@
       //case minus button handler
       const caseMinusBtn = document.getElementById('minus-button-case');
       caseMinusBtn.addEventListener('click', function() {
-         buttonFunctionality('product-piece-case', 'total-of-case', 59, -1);
+         var minusButtonValueCase = buttonFunctionality('product-piece-case', 'total-of-case', 59, -1);
+         console.log(minusButtonValueCase);
       })
 
       //case plus button handler
       const casePlusBtn = document.getElementById('plus-button-case');
       casePlusBtn.addEventListener('click', function() {  
-         buttonFunctionality('product-piece-case', 'total-of-case', 59, 1)    
+         var plusButtonValueCase = buttonFunctionality('product-piece-case', 'total-of-case', 59, 1);
+         console.log(plusButtonValueCase);
       })
       //Case ********
    </script>
