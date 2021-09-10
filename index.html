@@ -79,12 +79,11 @@
    </section>
 
    <script>
-      
 
-      function minusButtonFunctionality(productPieceId, totalId, price) {
+      function buttonFunctionality(productPieceId, totalId, price, cartPieceValue) {
          var productPiece = document.getElementById(productPieceId).value;
          var productPieceNumber = parseInt(productPiece);
-         productPieceNumber = --productPieceNumber;
+         productPieceNumber = productPieceNumber + cartPieceValue;
          document.getElementById(productPieceId).value = productPieceNumber;
 
          var totalOfPhone = document.getElementById(totalId).innerText;
@@ -93,28 +92,12 @@
          document.getElementById(totalId).innerText = totalOfPhoneNumber;
          return totalOfPhoneNumber;
       }
-
-      function plusButtonFunctionality(productPieceId, totalId, price) {
-         var productPiece = document.getElementById(productPieceId).value;
-
-         var productPieceNumber = parseInt(productPiece);
-         productPieceNumber = ++productPieceNumber;
-         document.getElementById(productPieceId).value = productPieceNumber;
-
-         var totalOfPhone = document.getElementById(totalId).innerText;
-         var totalOfPhoneNumber = parseInt(totalOfPhone);
-         totalOfPhoneNumber = productPieceNumber * price; 
-         document.getElementById(totalId).innerText = totalOfPhoneNumber;
-         return totalOfPhoneNumber;
-      }
-
-      
-
+ 
       //Phone ********
       //phone minus button event handler
       const phoneMinusBtn = document.getElementById('minus-button-phone');
       phoneMinusBtn.addEventListener('click', function() {
-        var minusButtonValue = minusButtonFunctionality('product-piece-phone', 'total-of-phone', 1219);
+        var minusButtonValue = buttonFunctionality('product-piece-phone', 'total-of-phone', 1219, -1);
         console.log(minusButtonValue);
 
       })
@@ -122,7 +105,7 @@
       //phone plus button event handler
       const phonePlusBtn = document.getElementById('plus-button-phone');
       phonePlusBtn.addEventListener('click', function() {
-         var plusButtonValue = plusButtonFunctionality('product-piece-phone', 'total-of-phone', 1219);
+         var plusButtonValue = buttonFunctionality('product-piece-phone', 'total-of-phone', 1219, 1);
          console.log(plusButtonValue);
 
       })
@@ -134,13 +117,13 @@
       //case minus button handler
       const caseMinusBtn = document.getElementById('minus-button-case');
       caseMinusBtn.addEventListener('click', function() {
-          minusButtonFunctionality('product-piece-case', 'total-of-case', 59);
+         buttonFunctionality('product-piece-case', 'total-of-case', 59, -1);
       })
 
       //case plus button handler
       const casePlusBtn = document.getElementById('plus-button-case');
       casePlusBtn.addEventListener('click', function() {  
-         plusButtonFunctionality('product-piece-case', 'total-of-case', 59)    
+         buttonFunctionality('product-piece-case', 'total-of-case', 59, 1)    
       })
       //Case ********
    </script>
